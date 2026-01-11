@@ -1,0 +1,51 @@
+mutation CreateFoodDonation(
+    $donorId: UUID,
+    $allergiesInfo: String,
+    $description: String,
+    $foodType: String!,
+    $pickUpAddress: String!,
+    $pickUpEndTime: Timestamp!,
+    $pickUpStartTime: Timestamp!,
+    $quantity: String!,
+    $status: String!
+) @auth(level: USER) {
+  foodDonation_insert(data: {
+    donorId: $donorId,
+    allergiesInfo: $allergiesInfo,
+    description: $description,
+    foodType: $foodType,
+    pickUpAddress: $pickUpAddress,
+    pickUpEndTime: $pickUpEndTime,
+    pickUpStartTime: $pickUpStartTime,
+    quantity: $quantity,
+    status: $status
+  })
+}
+
+query ListFoodDonations @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  foodDonations {
+    id
+    description
+    foodType
+    pickUpAddress
+    pickUpEndTime
+    pickUpStartTime
+    quantity
+  }
+}
+
+mutation UpdateNotificationIsRead($id: UUID!, $isRead: Boolean!) @auth(level: USER) {
+  notification_update(key: {id: $id}, data: {isRead: $isRead}) {
+    id
+  }
+}
+
+query GetMyNotifications @auth(level: USER) {
+  notifications(where: {recipientId: {eq_expr: "auth.uid"}}) {
+    id
+    type
+    message
+    isRead
+    createdAt
+  }
+}

@@ -1,0 +1,49 @@
+type User @table {
+  displayName: String!
+  userType: String!
+  contactPhone: String!
+  location: Location!
+  email: String
+  organizationName: String
+  address: String
+  photoUrl: String
+}
+
+type FoodDonation @table {
+  donor: User
+  foodType: String!
+  quantity: String!
+  pickUpAddress: String!
+  pickUpStartTime: Timestamp!
+  pickUpEndTime: Timestamp!
+  status: String!
+  createdAt: Timestamp!
+  description: String
+  allergiesInfo: String
+}
+
+type Claim @table {
+  donation: FoodDonation!
+  claimant: User!
+  createdAt: Timestamp!
+  status: String!
+  messageToDonor: String
+}
+
+type Notification @table {
+  recipient: User!
+  message: String!
+  createdAt: Timestamp!
+  isRead: Boolean!
+  type: String!
+  relatedDonationId: UUID
+  relatedClaimId: UUID
+}
+
+type Location @table {
+  latitude: Float!
+  longitude: Float!
+  addressString: String!
+  city: String
+  postalCode: String
+}
