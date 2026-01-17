@@ -26,7 +26,7 @@ const HomePage = () => {
       setFeedbackForm(false);
     } catch (error) {
       console.error('Error saving feedback:', error);
-      alert('Error saving feedback. Please try again.');
+      alert(`Error: ${error.message}`);
     }
   };
 
@@ -105,8 +105,8 @@ const HomePage = () => {
         <div className="user-types">
           <Link to="/register?type=donor" className="user-type-card donor-card">
             <div className="type-icon">🍽️</div>
-            <h3>Restaurant Donor</h3>
-            <p>List excess food from your restaurant</p>
+            <h3>Donor</h3>
+            <p>Homes, hostels, restaurants, etc..</p>
             <ul>
               <li>✓ Instant pickup scheduling</li>
               <li>✓ Track food donations</li>

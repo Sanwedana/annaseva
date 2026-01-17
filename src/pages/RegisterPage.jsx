@@ -78,8 +78,7 @@ const RegisterPage = () => {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
-          <div className="auth-header">
-            <h1>🍽️ FoodConnect</h1>
+          <div className="register-header">
             <h2>Create Account</h2>
             <p>Join as a {formData.userType}</p>
           </div>
