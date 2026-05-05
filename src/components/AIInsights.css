@@ -1,0 +1,181 @@
+/* AIInsights panel */
+
+.ai-panel {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.ai-panel-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Card */
+.ai-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.ai-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+}
+
+/* Urgency badge */
+.ai-urgency-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+/* Score bar */
+.ai-score-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.ai-score-bar-fill {
+  height: 8px;
+  background: linear-gradient(90deg, #48bb78, #f6ad55, #fc8181);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+  flex-shrink: 0;
+}
+
+.ai-score-label {
+  font-size: 0.75rem;
+  color: #718096;
+  white-space: nowrap;
+}
+
+/* Impact grid */
+.ai-impact-grid {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ai-impact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #edf2f7;
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  min-width: 70px;
+}
+
+.ai-impact-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.ai-impact-label {
+  font-size: 0.7rem;
+  color: #718096;
+  margin-top: 0.15rem;
+}
+
+/* Suggestions */
+.ai-suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ai-suggestion {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.ai-suggestion-warning { background: #fff5f5; border-left: 3px solid #e53e3e; }
+.ai-suggestion-info    { background: #ebf8ff; border-left: 3px solid #3182ce; }
+.ai-suggestion-tip     { background: #fffff0; border-left: 3px solid #d69e2e; }
+.ai-suggestion-impact  { background: #f0fff4; border-left: 3px solid #38a169; }
+
+/* Match list */
+.ai-match-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ai-match-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.ai-match-item:last-child {
+  border-bottom: none;
+}
+
+.ai-match-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.ai-match-info strong {
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+.ai-match-info span {
+  font-size: 0.78rem;
+  color: #718096;
+}
+
+.ai-match-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+/* Tip card */
+.ai-tip {
+  background: #f0fff4;
+  border-color: #c6f6d5;
+}
+
+.ai-tip p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #276749;
+  line-height: 1.5;
+}
