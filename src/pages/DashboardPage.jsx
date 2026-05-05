@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
+import AIInsights from '../components/AIInsights';
 import './DashboardPage.css';
 
 const DashboardPage = () => {
   const [userType, setUserType] = useState('donor');
   const [showCreateForm, setShowCreateForm] = useState(false);
+  const [donorListing, setDonorListing] = useState({
+    food: '',
+    quantity: 5,
+    expiryMins: 30,
+    lat: 40.7128,
+    lng: -74.006,
+  });
 
   const mockDonors = [
     {
@@ -59,17 +67,33 @@ const DashboardPage = () => {
 
             {showCreateForm && (
               <div className="food-form">
-                <input type="text" placeholder="Food Type (e.g., Pizza, Rice, etc.)" />
-                <input type="number" placeholder="Quantity (kg or units)" />
-                <select>
-                  <option>Expiry in 15 mins</option>
-                  <option>Expiry in 30 mins</option>
-                  <option>Expiry in 1 hour</option>
+                <input
+                  type="text"
+                  placeholder="Food Type (e.g., Pizza, Rice, etc.)"
+                  value={donorListing.food}
+                  onChange={(e) => setDonorListing((prev) => ({ ...prev, food: e.target.value }))}
+                />
+                <input
+                  type="number"
+                  placeholder="Quantity (kg or units)"
+                  value={donorListing.quantity}
+                  min="1"
+                  onChange={(e) => setDonorListing((prev) => ({ ...prev, quantity: Number(e.target.value) || 1 }))}
+                />
+                <select
+                  value={donorListing.expiryMins}
+                  onChange={(e) => setDonorListing((prev) => ({ ...prev, expiryMins: Number(e.target.value) }))}
+                >
+                  <option value={15}>Expiry in 15 mins</option>
+                  <option value={30}>Expiry in 30 mins</option>
+                  <option value={60}>Expiry in 1 hour</option>
                 </select>
-                <textarea placeholder="Food Description & dietary info..."></textarea>
+                <textarea placeholder="Food Description &amp; dietary info..."></textarea>
                 <button className="btn btn-primary">Post Now</button>
               </div>
             )}
+
+            <AIInsights userType="donor" listing={donorListing} />
           </div>
         )}
 
@@ -107,6 +131,8 @@ const DashboardPage = () => {
                 </div>
               ))}
             </div>
+
+            <AIInsights userType="ngo" donors={mockDonors.map(d => ({ ...d, expiryMins: parseInt(d.expiryTime) || 30 }))} />
           </div>
         )}
 
@@ -128,13 +154,15 @@ const DashboardPage = () => {
               </div>
               <div className="request-card">
                 <h3>Happy Kitchen → Hope NGO</h3>
-                <p>📦 5 kg rice & curry (Expires in 40 mins)</p>
+                <p>📦 5 kg rice &amp; curry (Expires in 40 mins)</p>
                 <p>📍 North Zone, Market Square</p>
                 <p>📍 1.5 km away</p>
                 <p>⭐ +3 volunteer hours</p>
                 <button className="btn btn-primary">Accept Request</button>
               </div>
             </div>
+
+            <AIInsights userType="volunteer" />
           </div>
         )}
       </div>
